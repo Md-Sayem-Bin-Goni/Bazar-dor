@@ -5,6 +5,7 @@ import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
+import Category from "@/components/Category";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col font-hind">
         <Navber />
         {children}
+        <Category/>
         <Banner/>
         <Footer/>
       </body>
