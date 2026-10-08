@@ -219,7 +219,7 @@ export default function SignUpPage() {
                 {/* Already have an account link */}
                 <div className="text-center pt-2">
                     <p className="text-xs text-gray-600 font-medium">
-                        অ্যাকাউন্ট আছে?{" "}
+                        অ্যাকাউন্ট আছে ?{" "}
                         <Link
                             href="/sign-in"
                             className="text-[#009640] hover:underline font-bold transition-all"
