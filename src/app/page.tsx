@@ -99,7 +99,9 @@ const HomePage = async () => {
       )}
 
       {/* ৩. সেকশন: সব পণ্য */}
-      <section>
+      <section id='allproduct'
+      className="scroll-mt-24"
+      >
         <div className="mb-3 sm:mb-4">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900">সব পণ্য</h2>
           <p className="text-xs sm:text-sm text-gray-500 font-medium">

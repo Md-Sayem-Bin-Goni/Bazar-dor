@@ -46,14 +46,12 @@ const Banner = () => {
                     </p>
 
                     {/* বাটন */}
-                    <div className="pt-2 w-full sm:w-auto">
-                        <button
-                            type="button"
-                            className="w-full sm:w-auto bg-[#009640] hover:bg-[#007d35] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md transition-all active:scale-95 text-center"
-                        >
-                            সব পণ্য দেখুন
-                        </button>
-                    </div>
+<div
+  onClick={() => alert("CLICK WORKS")}
+  className="inline-block w-full sm:w-auto bg-[#009640] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md cursor-pointer"
+>
+  সব পণ্য দেখুন
+</div>
                 </div>
 
                 {/* ডান পাশের ছবি (বড় স্ক্রিনে জায়গা অনুয়ায়ী মানানসই করার জন্য) */}

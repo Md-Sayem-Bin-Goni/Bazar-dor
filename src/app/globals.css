@@ -3,3 +3,6 @@
 @theme {
   --font-hind: var(--font-hind-siliguri);
 }
+html {
+  scroll-behavior: smooth;
+}
