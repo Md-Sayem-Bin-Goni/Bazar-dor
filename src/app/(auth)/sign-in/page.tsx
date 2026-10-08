@@ -59,7 +59,7 @@ export default function SignInPage() {
           সাইন ইন
         </h1>
         <p className="text-xs sm:text-sm text-gray-500 font-medium mt-2">
-          বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
+          বিস্তারিত দাম , বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
         </p>
       </div>
 
