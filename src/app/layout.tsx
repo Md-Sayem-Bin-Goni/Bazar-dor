@@ -38,10 +38,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-hind">
         <Navber />
-        <Category/>
-        <Marquee/>
-       <main> {children}</main>
-        <Footer/>
+        {/* <Category /> */}
+        <Marquee />
+        <main> {children}</main>
+        <Footer />
       </body>
     </html>
   );

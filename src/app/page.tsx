@@ -1,4 +1,5 @@
 import Banner from '@/components/Banner';
+import Category from '@/components/Category';
 import ProductCard from '@/components/ProductCard';
 
 export interface ProductChange {
@@ -45,18 +46,21 @@ const HomePage = async () => {
     console.error("Fetch error:", error);
   }
 
-  // দাম বেড়েছে এমন প্রথম ৬টি পণ্য
-  const priceUp: Product[] = data
-    .filter((product) => product.change?.dir === 'up')
-    .slice(0, 6);
+// দাম বেড়েছে এমন প্রথম ৬টি পণ্য (সবচেয়ে বেশি % বাড়া পণ্যগুলো আগে থাকবে)
+const priceUp: Product[] = data
+  .filter((product) => product.change?.dir === 'up')
+  .sort((a, b) => (b.change?.pct || 0) - (a.change?.pct || 0))
+  .slice(0, 6);
 
-  // দাম কমেছে এমন প্রথম ৬টি পণ্য
-  const priceDown: Product[] = data
-    .filter((product) => product.change?.dir === 'down')
-    .slice(0, 6);
+// দাম কমেছে এমন প্রথম ৬টি পণ্য (সবচেয়ে বেশি % কমা পণ্যগুলো আগে থাকবে)
+const priceDown: Product[] = data
+  .filter((product) => product.change?.dir === 'down')
+  .sort((a, b) => (a.change?.pct || 0) - (b.change?.pct || 0))
+  .slice(0, 6);
 
   return (
     <div>
+      
       <Banner />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6 sm:space-y-8">
 
