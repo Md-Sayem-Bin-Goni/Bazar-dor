@@ -31,7 +31,7 @@ const Banner = () => {
                 {/* বাম পাশের কনটেন্ট */}
                 <div className="w-full md:flex-1 space-y-3 sm:space-y-4 text-left">
                     {/* ডায়নামিক ডেট ব্যাজ */}
-                    <div className="inline-block bg-[#e1eee4] text-[#009640] text-xs sm:text-sm font-semibold px-3 py-1 rounded-full min-h-[26px]">
+                    <div className="inline-block bg-[#e1eee4] text-[#009640] text-xs sm:text-sm font-semibold px-3 py-1 rounded-full min-h-6.5">
                         {currentDate || 'লোড হচ্ছে...'}
                     </div>
 
@@ -46,12 +46,15 @@ const Banner = () => {
                     </p>
 
                     {/* বাটন */}
-<div
-  onClick={() => alert("CLICK WORKS")}
-  className="inline-block w-full sm:w-auto bg-[#009640] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md cursor-pointer"
->
-  সব পণ্য দেখুন
-</div>
+                    <a
+                        href="#allproduct"
+                        onClick={() => alert("CLICK")}
+                        className="relative z-9999 cursor-pointer inline-block w-full sm:w-auto bg-[#009640] hover:bg-[#007d35] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md"
+                    >
+                        সব পণ্য দেখুন
+                    </a>
+
+
                 </div>
 
                 {/* ডান পাশের ছবি (বড় স্ক্রিনে জায়গা অনুয়ায়ী মানানসই করার জন্য) */}
