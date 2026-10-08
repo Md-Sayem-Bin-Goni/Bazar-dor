@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface ProductCardProps {
@@ -34,6 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const isUp = changeDir === 'up';
 
   return (
+   <Link href={`/product/${product.id}`}>
     <div className="bg-white/80 border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all w-full max-w-sm">
       
       {/* উপরের অংশ: আইকন, নাম ও পরিমাপ */}
@@ -81,6 +83,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
     </div>
+    </Link>
   );
 };
 

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from '@/asset/shopping-cart-white-icon.webp';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [currentDate, setCurrentDate] = useState('');
@@ -32,6 +33,7 @@ const Navbar = () => {
       <nav className="px-4 sm:px-6 py-3 flex items-center justify-between max-w-7xl mx-auto">
         
         {/* বাম পাশ: লোগো, টাইটেল এবং তারিখ */}
+        <Link href={'/'}>
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#009640] rounded-xl flex items-center justify-center text-white shadow-sm shrink-0">
             <Image 
@@ -51,6 +53,7 @@ const Navbar = () => {
             </span>
           </div>
         </div>
+        </Link>
 
         {/* ডান পাশ: সাইন ইন ও সাইন আপ বাটন */}
         <div className="flex items-center gap-2 sm:gap-4">
