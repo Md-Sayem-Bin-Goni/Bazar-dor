@@ -69,13 +69,13 @@ const Navbar = () => {
             setIsDropdownOpen(false);
 
             // Session clear হওয়ার পর পুরো page reload হবে
-            window.location.href = '/';
-                    toast.success("সফলভাবে লগআউট হয়েছে।")
+            // window.location.href = '/';
             
-
+            
         } catch (error) {
             console.error('Sign out error:', error);
         }
+        toast.success("সফলভাবে লগআউট হয়েছে।")
     };
 
     // User first letter

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -37,13 +38,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
     return (
         <Link href={`/product/${product?.id}`}>
-            <div className="bg-white/80 border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all w-full max-w-sm">
+            <div className="bg-white/80 border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all w-full max-w-sm hover:border-green-600">
 
                 {/* উপরের অংশ: আইকন, নাম ও পরিমাপ */}
                 <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-[#f4f7f4] rounded-xl flex items-center justify-center text-2xl shrink-0">
                         {image.length > 5 ? (
-                            <img src={image} alt={name} className="w-7 h-7 object-contain" />
+                            <Image src={image} alt={name} className="w-7 h-7 object-contain" />
                         ) : (
                             <span>{image}</span>
                         )}

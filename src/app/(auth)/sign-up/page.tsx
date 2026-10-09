@@ -22,35 +22,32 @@ export default function SignUpPage() {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data: Record<string, string> = {};
-        
+
         formData.forEach((value, key) => {
             data[key] = value.toString();
         });
-        
+
         if (data.password !== data.confirmPassword) {
             alert("পাসওয়ার্ড দুইটি মিলছে না!");
             return;
         }
-        
-     const { data: resData, error } = await authClient.signUp.email({
-  name: data.name,
-  email: data.email,
-  password: data.password,
-  callbackURL: "/sign-in",
-});
 
-if (error) {
-  console.error("Signup error:", error);
-  return;
-}
+        const { data: resData, error } = await authClient.signUp.email({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            callbackURL: "/sign-in",
+        });
 
-if (resData) {
-  router.push("/sign-in");
-  router.refresh();
-}
+        if (error) {
+            console.error("Signup error:", error);
+            return;
+        }
 
-
-
+        if (resData) {
+            router.push("/sign-in");
+            router.refresh();
+        }
 
 
         console.log("Sign Up Data:", data);
@@ -62,12 +59,16 @@ if (resData) {
         const data = await authClient.signIn.social({
             provider: "google",
         });
+        toast.success("গুগল দিয়ে সাইন ইন সফল হয়েছে!");
+
     };
 
     const githubsignIn = async () => {
         const data = await authClient.signIn.social({
             provider: "github"
         })
+        toast.success("গিটহাব দিয়ে সাইন ইন সফল হয়েছে!");
+
     }
 
     return (
