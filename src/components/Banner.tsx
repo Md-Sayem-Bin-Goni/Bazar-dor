@@ -25,49 +25,52 @@ const Banner = () => {
     }, []);
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 my-4">
-            <div className="w-full bg-[#f6f9f5] border border-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-sm">
+     
+<section className="mx-auto my-4 w-full max-w-7xl px-3 sm:px-6">
+    <div className="flex w-full flex-col items-center justify-between gap-6 rounded-2xl border border-gray-100 bg-[#f6f9f5] p-5 shadow-sm sm:gap-8 sm:rounded-3xl sm:p-8 md:flex-row md:p-10">
 
-                {/* বাম পাশের কনটেন্ট */}
-                <div className="w-full md:flex-1 space-y-3 sm:space-y-4 text-left">
-                    {/* ডায়নামিক ডেট ব্যাজ */}
-                    <div className="inline-block bg-[#e1eee4] text-[#009640] text-xs sm:text-sm font-semibold px-3 py-1 rounded-full min-h-6.5">
-                        {currentDate || 'লোড হচ্ছে...'}
-                    </div>
+        {/* বাম পাশের কনটেন্ট */}
+        <div className="w-full min-w-0 space-y-3 text-left sm:space-y-4 md:flex-1">
 
-                    {/* প্রধান শিরোনাম */}
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-                        আজকের বাজারের দাম এক নজরে
-                    </h1>
-
-                    {/* বর্ণনা */}
-                    <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-3xl">
-                        চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
-                    </p>
-
-                    {/* বাটন */}
-                    <a
-                        href="#allproduct"
-                        className="relative z-9999 cursor-pointer inline-block w-full sm:w-auto bg-[#009640] hover:bg-[#007d35] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md"
-                    >
-                        সব পণ্য দেখুন
-                    </a>
-
-
-                </div>
-
-                {/* ডান পাশের ছবি (বড় স্ক্রিনে জায়গা অনুয়ায়ী মানানসই করার জন্য) */}
-                <div className="w-48 sm:w-60 md:w-72 lg:w-80 flex justify-center items-center shrink-0">
-                    <Image
-                        src={bannerLogo}
-                        alt="বাজারের পণ্য ও ঝুড়ি"
-                        priority
-                        className="w-full h-auto object-contain"
-                    />
-                </div>
-
+            {/* ডায়নামিক ডেট ব্যাজ */}
+            <div className="inline-flex max-w-full items-center rounded-full bg-[#e1eee4] px-3 py-1 text-xs font-semibold text-[#009640] sm:text-sm">
+                {currentDate || "লোড হচ্ছে..."}
             </div>
-        </section>
+
+            {/* প্রধান শিরোনাম */}
+            <h1 className="text-2xl font-extrabold leading-tight text-gray-900 break-words sm:text-3xl md:text-4xl lg:text-5xl">
+                আজকের বাজারের দাম এক নজরে
+            </h1>
+
+            {/* বর্ণনা */}
+            <p className="max-w-3xl text-sm leading-relaxed text-gray-600 sm:text-base">
+                চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
+            </p>
+
+            {/* বাটন */}
+            <a
+                href="#allproduct"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-[#009640] px-6 py-3 text-sm font-semibold text-white shadow-md transition-colors hover:bg-[#007d35] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#009640] sm:w-auto"
+            >
+                সব পণ্য দেখুন
+            </a>
+        </div>
+
+        {/* ডান পাশের ছবি */}
+        <div className="flex w-full max-w-[200px] shrink-0 items-center justify-center sm:max-w-[240px] md:w-[35%] md:max-w-[280px] lg:max-w-[320px]">
+            <Image
+                src={bannerLogo}
+                alt="বাজারের পণ্য ও ঝুড়ি"
+                priority
+                sizes="(max-width: 639px) 200px, (max-width: 767px) 240px, (max-width: 1023px) 280px, 320px"
+                className="h-auto w-full object-contain"
+            />
+        </div>
+
+    </div>
+</section>
+
+
     );
 };
 
