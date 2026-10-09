@@ -6,6 +6,7 @@ import logo from '@/asset/shopping-cart-white-icon.webp';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSession, authClient } from '@/lib/auth-client';
+import { toast } from '@heroui/react';
 
 const Navbar = () => {
     const [currentDate, setCurrentDate] = useState('');
@@ -69,6 +70,8 @@ const Navbar = () => {
 
             // Session clear হওয়ার পর পুরো page reload হবে
             window.location.href = '/';
+                    toast.success("সফলভাবে লগআউট হয়েছে।")
+            
 
         } catch (error) {
             console.error('Sign out error:', error);

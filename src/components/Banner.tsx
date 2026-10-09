@@ -48,7 +48,6 @@ const Banner = () => {
                     {/* বাটন */}
                     <a
                         href="#allproduct"
-                        onClick={() => alert("CLICK")}
                         className="relative z-9999 cursor-pointer inline-block w-full sm:w-auto bg-[#009640] hover:bg-[#007d35] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md"
                     >
                         সব পণ্য দেখুন

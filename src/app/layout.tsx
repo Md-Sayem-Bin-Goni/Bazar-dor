@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Category from "@/components/Category";
 import Marquee from "@/components/Marquee";
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,11 +38,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${hindSiliguri.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-hind">
+      <Providers>
+
         <Navber />
-        {/* <Category /> */}
+        <Category />
         <Marquee />
         <main> {children}</main>
         <Footer />
+
+        
+      </Providers>
       </body>
     </html>
   );

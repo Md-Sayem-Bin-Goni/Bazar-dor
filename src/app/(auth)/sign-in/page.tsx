@@ -12,6 +12,7 @@ import {
   Input,
   Label,
   TextField,
+  toast,
 } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 
@@ -36,7 +37,7 @@ export default function SignInPage() {
     console.log("SIGN IN DATA:", data);
     console.log("SIGN IN ERROR:", error);
 
-    alert("সাইন ইন সফল হয়েছে!");
+    toast.success("সাইন ইন সফল হয়েছে!");
   };
 
 
@@ -52,7 +53,7 @@ export default function SignInPage() {
     })
   }
   return (
-    <div className="min-h-screen bg-[#f3f6f3] flex flex-col items-center justify-center p-4">
+    <div className=" mt-10 flex flex-col items-center justify-center p-4">
       {/* Title & Subtitle */}
       <div className="text-center mb-6">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">

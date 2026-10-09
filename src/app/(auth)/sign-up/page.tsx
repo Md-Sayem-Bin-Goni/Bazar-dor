@@ -11,6 +11,7 @@ import {
     Input,
     Label,
     TextField,
+    toast,
 } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 
@@ -33,7 +34,7 @@ export default function SignUpPage() {
             name: data.name, // required, The name of the user.
             email: data.email, // required, The email address of the user.
             password: data.password, // required, The password of the user. It should be at least 8 characters long and max 128 by default.
-            callbackURL: "/", // An optional URL to redirect to after the user signs up.
+            callbackURL: "/sign-in", // An optional URL to redirect to after the user signs up.
         });
 
 
@@ -41,7 +42,7 @@ export default function SignUpPage() {
 
 
         console.log("Sign Up Data:", data);
-        alert("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+         toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
     };
 
 
@@ -58,7 +59,7 @@ export default function SignUpPage() {
     }
 
     return (
-        <div className="min-h-screen bg-[#f3f6f3] flex flex-col items-center justify-center p-4">
+        <div className="mt-10 flex flex-col items-center justify-center p-4">
             {/* Title & Subtitle */}
             <div className="text-center mb-6">
                 <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">

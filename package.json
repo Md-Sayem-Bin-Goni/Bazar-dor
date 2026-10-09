@@ -12,6 +12,7 @@
     "@better-auth/mongo-adapter": "^1.7.7",
     "@heroui/react": "^3.2.6",
     "@heroui/styles": "^3.2.6",
+    "@heroui/toast": "^2.0.22",
     "better-auth": "^1.7.7",
     "db": "^6.0.3",
     "mongo": "^0.1.0",
