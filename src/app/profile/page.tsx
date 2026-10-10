@@ -53,7 +53,6 @@ const ProfilePage = () => {
         } catch (error) {
             console.error("Update user error:", error);
             setMessage("নাম আপডেট করতে সমস্যা হয়েছে।");
-            toast.error("নাম আপডেট করা যায়নি।");
         } finally {
             setIsUpdating(false);
         }

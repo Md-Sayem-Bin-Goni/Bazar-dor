@@ -62,10 +62,7 @@ const Navbar = () => {
 const handleSignOut = async () => {
     const { error } = await signOut();
 
-    if (error) {
-        toast.error("লগআউট করা যায়নি।");
-        return;
-    }
+  
 
     setIsDropdownOpen(false);
     router.replace("/");
