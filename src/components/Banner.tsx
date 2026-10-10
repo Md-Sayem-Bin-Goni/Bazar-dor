@@ -33,7 +33,7 @@ const Banner = () => {
         <div className="w-full min-w-0 space-y-3 text-left sm:space-y-4 md:flex-1">
 
             {/* ডায়নামিক ডেট ব্যাজ */}
-            <div className="inline-flex max-w-full items-center rounded-full bg-[#e1eee4] px-3 py-1 text-xs font-semibold text-[#009640] sm:text-sm">
+            <div className="inline-flex max-w-full items-center rounded-full bg-[#e1eee4] px-3 py-1 text-xs font-bold text-[#009640] sm:text-sm">
                 {currentDate || "লোড হচ্ছে..."}
             </div>
 

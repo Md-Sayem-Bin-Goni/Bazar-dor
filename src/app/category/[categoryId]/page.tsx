@@ -45,7 +45,7 @@ function CategoryContent() {
             try {
                 setLoading(true);
                 const res = await fetch(
-                    `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryId}`
+                    `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`
                 );
                 if (res.ok) {
                     const data: Product[] = await res.json();

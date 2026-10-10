@@ -103,11 +103,11 @@ const Navbar = () => {
 
                         {/* Title + Date */}
                         <div className="flex flex-col">
-                            <h1 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
+                            <h1 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight ">
                                 বাজার দর
                             </h1>
 
-                            <span className="text-[10px] sm:text-xs text-gray-500 font-medium min-h-[16px]">
+                            <span className="text-[10px] sm:text-xs text-gray-500 font-bold min-h-[16px] ">
                                 {currentDate || 'লোড হচ্ছে...'}
                             </span>
                         </div>

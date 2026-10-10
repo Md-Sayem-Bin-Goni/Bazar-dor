@@ -53,7 +53,7 @@ function ProductDetailsContent() {
         const fetchProductDetails = async () => {
             try {
                 setLoading(true);
-                const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+                const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products/");
                 if (res.ok) {
                     const data: Product[] = await res.json();
                     const found = data.find(
