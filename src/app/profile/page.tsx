@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { useSession, signOut } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "@heroui/react";
-
+import { authClient } from "@/lib/auth-client";
+import { updateUser } from "@/lib/auth-client";
 const ProfilePage = () => {
     const { data: session, isPending } = useSession();
     const router = useRouter();
@@ -20,38 +21,44 @@ const ProfilePage = () => {
         if (user?.name) setName(user.name);
     }, [user?.name]);
 
-const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
-e.preventDefault();
 
-if (!name.trim()) {
-  setMessage("নাম লিখুন।");
-  return;
-}
+    const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-try {
-  setIsUpdating(true);
-  setMessage("");
+        const updatedName = name.trim();
 
-  const response = await fetch("/api/auth/update-user", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name: name.trim() }),
-  });
+        if (!updatedName) {
+            setMessage("নাম লিখুন।");
+            return;
+        }
 
-  if (!response.ok) {
-    throw new Error("নাম আপডেট করা যায়নি।");
-  }
+        if (updatedName === user?.name) return;
 
-  setMessage("নাম সফলভাবে আপডেট হয়েছে।");
-  toast.success("নাম আপডেট হয়েছে!")
-  router.refresh();
-} catch {
-  setMessage("নাম আপডেট করতে সমস্যা হয়েছে।");
-} finally {
-  setIsUpdating(false);
-}
+        try {
+            setIsUpdating(true);
+            setMessage("");
 
-};
+            const { error } = await authClient.updateUser({
+                name: updatedName,
+            });
+
+            if (error) {
+                throw new Error("নাম আপডেট করা যায়নি।");
+            }
+
+            setMessage("নাম সফলভাবে আপডেট হয়েছে।");
+            toast.success("নাম আপডেট হয়েছে!");
+
+            router.refresh();
+        } catch (error) {
+            console.error("Update user error:", error);
+            setMessage("নাম আপডেট করতে সমস্যা হয়েছে।");
+            toast.error("নাম আপডেট করা যায়নি।");
+        } finally {
+            setIsUpdating(false);
+        }
+    };
+
 
     const handleSignOut = async () => {
         await signOut({

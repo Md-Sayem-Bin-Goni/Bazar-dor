@@ -7,7 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSession, authClient } from '@/lib/auth-client';
 import { toast } from '@heroui/react';
-
+import { useRouter } from "next/navigation";
+import {  signOut } from "@/lib/auth-client";
 const Navbar = () => {
     const [currentDate, setCurrentDate] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -57,30 +58,25 @@ const Navbar = () => {
     }, []);
 
     // Sign out
-    const handleSignOut = async () => {
-        try {
-            const { error } = await authClient.signOut();
+  
+const handleSignOut = async () => {
+    const { error } = await signOut();
 
-            if (error) {
-                console.error('Sign out failed:', error);
-                return;
-            }
+    if (error) {
+        toast.error("লগআউট করা যায়নি।");
+        return;
+    }
 
-            setIsDropdownOpen(false);
+    setIsDropdownOpen(false);
+    router.replace("/");
+    toast.success("সফলভাবে লগআউট হয়েছে।");
+};
 
-            // Session clear হওয়ার পর পুরো page reload হবে
-            // window.location.href = '/';
-            
-            
-        } catch (error) {
-            console.error('Sign out error:', error);
-        }
-        toast.success("সফলভাবে লগআউট হয়েছে।")
-    };
 
     // User first letter
     const firstLetter =
         session?.user?.name?.charAt(0).toUpperCase() || 'U';
+const router = useRouter();
 
     return (
         <header className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
